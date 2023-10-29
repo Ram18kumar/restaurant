@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Restaurant</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu" class="ram"id="ram">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="search-container">
+        <label for="search"></label>
+        <input type="text" id="search"  placeholder="Enter item name">
+      <button onclick="Searchitems()">Search</button>
+    </div>
+ <div id="raja">
+      
+ </div>
+ <script >const items=[
+    "idly",
+    "dosa",
+    "biriyani",
+    "Friedrice"];
+        function Searchitems() {
+            const searchTerm = document.getElementById("search");
+            const result = document.getElementById("raja");
+           
+            result.innerHTML = " ";
+
+           
+               
+            if (searchTerm === "") {
+                return;
+            }
+
+            const matchingItems = items.filter(item => item.includes(searchTerm));
+
+            if (matchingItems.length === 0) {
+                result.innerHTML = "No matching items found.";
+            } else {
+                const resultHTML = matchingItems.map(item => `<div>${items}</div>`).reduce((prev, current) => prev + current);
+                result.innerHTML = resultHTML;
+            }
+            }</script>
+</body>
+</html>
